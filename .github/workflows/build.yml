@@ -11,10 +11,9 @@ jobs:
       - name: Install XcodeGen
         run: brew install xcodegen
       - name: Generate project
-        run: cd FundApp && xcodegen generate
+        run: xcodegen generate
       - name: Build unsigned archive
         run: |
-          cd FundApp
           xcodebuild archive \
             -scheme FundApp \
             -configuration Release \
@@ -22,7 +21,6 @@ jobs:
             CODE_SIGNING_ALLOWED=NO
       - name: Export IPA
         run: |
-          cd FundApp
           mkdir -p build/Payload
           cp -r build/FundApp.xcarchive/Products/Applications/FundApp.app build/Payload/
           cd build
@@ -31,4 +29,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: FundApp-IPA
-          path: FundApp/build/FundApp.ipa
+          path: build/FundApp.ipa
