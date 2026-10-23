@@ -15,6 +15,7 @@ jobs:
       - name: Build unsigned archive
         run: |
           xcodebuild archive \
+            -project FundApp.xcodeproj \
             -scheme FundApp \
             -configuration Release \
             -archivePath build/FundApp.xcarchive \
