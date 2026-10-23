@@ -1,0 +1,22 @@
+name: FundApp
+options:
+  bundleIdPrefix: com.fundanalyzer
+  deploymentTarget:
+    iOS: "15.0"
+targets:
+  FundApp:
+    type: application
+    platform: iOS
+    sources:
+      - path: FundApp
+    info:
+      path: FundApp/Info.plist
+      properties:
+        CFBundleDisplayName: 基金量化
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "1"
+        UILaunchScreen: [:]
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: true
